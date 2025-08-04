@@ -1,4 +1,4 @@
-package com.shounoop.carrentalspring;
+package com.shrikrishna.carrentalspring;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
