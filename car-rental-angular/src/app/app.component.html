@@ -1,0 +1,67 @@
+<!-- Hero Section Only on Home Route -->
+<ng-container *ngIf="isHomeRoute">
+  <div class="hero-clean">
+    <div class="hero-clean-content">
+      <h1><strong>Rent a Car Online Today <span>&</span></strong></h1>
+      <p>Enjoy the Best Deals, Rates <span>&</span> Accessories</p>
+      <p class="subtext">We are open 24/7 including major holidays</p>
+      <div class="shift-btn">
+        <a class="hero-btn" (click)="goToLogin()">BOOK ONLINE NOW</a>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<!-- Public Navbar -->
+<div *ngIf="showNavbar && !isAdminLoggedIn && !isCustomerLoggedIn && !isHomeRoute">
+  <div class="custom-navbar">
+    <div class="navbar-title">
+      <a routerLink="/">Car Rental Service</a>
+    </div>
+    <div class="nav-links">
+      <a routerLink="/register">Sign Up</a>
+      <a routerLink="/login">Login</a>
+    </div>
+  </div>
+</div>
+
+<!-- Admin Navbar -->
+<div *ngIf="showNavbar && isAdminLoggedIn && !isHomeRoute">
+  <div class="custom-navbar">
+    <div class="navbar-title">
+      <a routerLink="/admin/dashboard">Welcome, {{ loggedInUserName }}</a>
+    </div>
+    <div class="nav-links">
+      <a routerLink="/admin/dashboard">Dashboard</a>
+      <a routerLink="/admin/car">Post Car</a>
+      <a routerLink="/admin/bookings">Bookings</a>
+      <a routerLink="/admin/search">Search</a>
+      <a (click)="logout()">Logout</a>
+    </div>
+  </div>
+</div>
+
+<!-- Customer Navbar -->
+<div *ngIf="showNavbar && isCustomerLoggedIn && !isHomeRoute">
+  <div class="custom-navbar">
+    <div class="navbar-title">
+      <a routerLink="/customer/dashboard">Welcome, {{ loggedInUserName }}</a>
+    </div>
+    <div class="nav-links">
+      <a routerLink="/customer/search">Search</a>
+      <a routerLink="/customer/dashboard">Dashboard</a>
+      <a routerLink="/customer/my-bookings">My Bookings</a>
+      <a (click)="logout()">Logout</a>
+    </div>
+  </div>
+</div>
+
+<!-- Main content for non-auth pages -->
+<div *ngIf="!isAuthPage()" class="main-wrapper">
+  <router-outlet></router-outlet>
+</div>
+
+<!-- Auth Pages -->
+<ng-container *ngIf="isAuthPage()">
+  <router-outlet></router-outlet>
+</ng-container>

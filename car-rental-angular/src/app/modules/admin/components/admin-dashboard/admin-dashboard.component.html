@@ -1,0 +1,32 @@
+<div class="dashboard-background">
+  <div class="dashboard-container">
+    <h2 class="section-title">Manage <span>Car Listings</span></h2>
+    <p class="subtitle">Edit or delete cars from your fleet below.</p>
+
+    <div class="car-grid">
+      <div class="car-card" *ngFor="let car of cars">
+        <img [src]="car.processedImage" alt="{{ car.name }}" class="car-image" />
+
+        <div class="car-content">
+          <h3 class="car-title">{{ car.brand }} {{ car.name }}</h3>
+          <p class="car-description">{{ car.description }}</p>
+
+          <ul class="car-specs">
+            <li>Type: {{ car.type }}</li>
+            <li>Transmission: {{ car.transmission }}</li>
+            <li>Color: {{ car.color }}</li>
+            <li>Year: {{ car.year }}</li>
+          </ul>
+
+          <div class="car-footer">
+            <div class="price">${{ car.price }} / Day</div>
+            <div class="admin-actions">
+              <button nz-button nzType="default" nzSize="small" [routerLink]="'/admin/car/' + car.id">Update</button>
+              <button nz-button nzType="primary" nzDanger nzSize="small" (click)="deleteCar(car.id)">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

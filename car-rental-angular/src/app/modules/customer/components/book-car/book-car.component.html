@@ -1,0 +1,42 @@
+<div class="car-booking-wrapper">
+  <div class="car-booking-card" *ngIf="car">
+    <img class="car-img" [src]="car.processedImage" alt="Car Image">
+
+    <div class="car-info">
+      <h2>{{car.brand}} - {{car.name}}</h2>
+      <p class="description">{{car.description}}</p>
+    </div>
+
+    <div class="meta">
+      <span><strong>Price:</strong> ₹{{car.price}}</span>
+      <span><strong>Color:</strong> {{car.color}}</span>
+      <span><strong>Transmission:</strong> {{car.transmission}}</span>
+      <span><strong>Type:</strong> {{car.type}}</span>
+      <span><strong>Year:</strong> {{car.year}}</span>
+    </div>
+
+    <form class="booking-form" [formGroup]="validateForm" (ngSubmit)="bookACar()">
+      <div>
+        <label>Pickup Destination</label>
+        <input type="text" formControlName="pickupLocation" required>
+      </div>
+
+      <div>
+        <label>From Date</label>
+        <input type="date" formControlName="fromDate" (change)="calculateDays()" required>
+      </div>
+
+      <div>
+        <label>To Date</label>
+        <input type="date" formControlName="toDate" (change)="calculateDays()" required>
+      </div>
+
+      <div class="summary" *ngIf="days !== null">
+        <p><strong>Total Days:</strong> {{ days }}</p>
+        <p><strong>Total Price:</strong> ₹{{ totalPrice }}</p>
+      </div>
+
+      <button nz-button nzType="primary" [disabled]="!validateForm.valid">Book</button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="dashboard-background">
+  <div class="dashboard-container">
+    <h2 class="section-title">Available <span>Cars</span></h2>
+    <p class="subtitle">Choose your favorite and book now.</p>
+
+    <div class="car-grid">
+      <div class="car-card" *ngFor="let car of cars">
+        <img class="car-image" [src]="car.processedImage" alt="{{ car.name }}" />
+
+        <div class="car-content">
+          <h3 class="car-title">{{ car.brand }} - {{ car.name }}</h3>
+          <p class="car-description">{{ car.description }}</p>
+
+          <ul class="car-specs">
+            <li>Price: ₹{{ car.price }}</li>
+            <li>Color: {{ car.color }}</li>
+            <li>Transmission: {{ car.transmission }}</li>
+            <li>Type: {{ car.type }}</li>
+            <li>Year: {{ car.year }}</li>
+          </ul>
+
+          <div class="car-footer">
+            <div class="price">₹{{ car.price }} / Day</div>
+            <button nz-button nzType="primary" nzSize="small" [routerLink]="'/customer/book/' + car.id">
+              Book
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

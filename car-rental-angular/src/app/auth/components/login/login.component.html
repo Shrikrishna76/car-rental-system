@@ -1,0 +1,54 @@
+<div class="login-page">
+  <div class="login-overlay">
+    <div class="login-form-wrapper">
+      
+      <!-- Show error message if any -->
+      <div class="error-message" *ngIf="errorMessage">
+        {{ errorMessage }}
+      </div>
+
+      <h1 class="login-title">Welcome Back</h1>
+
+      <form [formGroup]="loginForm">
+        <!-- Email -->
+        <div class="form-group">
+          <input
+            id="email"
+            type="email"
+            placeholder=" "
+            formControlName="email"
+            autocomplete="off"
+          />
+          <label for="email">Email Address</label>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+          <input
+            id="password"
+            type="password"
+            placeholder=" "
+            formControlName="password"
+            autocomplete="off"
+          />
+          <label for="password">Password</label>
+        </div>
+
+        <!-- Button -->
+        <button
+          class="login-button"
+          (click)="login()"
+          [disabled]="loginForm.invalid"
+        >
+          Login
+        </button>
+
+        <!-- Register Link -->
+        <p class="register-text">
+          Don't have an account?
+          <a routerLink="/register">Register Now</a>
+        </p>
+      </form>
+    </div>
+  </div>
+</div>

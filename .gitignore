@@ -1,0 +1,28 @@
+# Ignore Mac system files
+.DS_Store
+
+# Node / Angular (Frontend)
+car-rental-angular/node_modules/
+car-rental-angular/dist/
+car-rental-angular/.angular/
+car-rental-angular/.env
+car-rental-angular/.idea/
+car-rental-angular/.vscode/
+
+# Java / Spring Boot (Backend)
+car-rental-backend/target/
+car-rental-backend/.classpath
+car-rental-backend/.project
+car-rental-backend/.settings/
+car-rental-backend/.env
+car-rental-backend/.idea/
+car-rental-backend/.vscode/
+
+# OS / IDE
+*.log
+*.iml
+*.swp
+*.bak
+*.tmp
+.metadata/
+

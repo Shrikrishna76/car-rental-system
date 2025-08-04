@@ -1,0 +1,91 @@
+<!-- 
+<div *ngFor="let booking of bookings"
+  class="flex flex-col bg-slate-200 p-4 rounded-lg mb-4 shadow-md">
+
+  <div><strong>Booking ID:</strong> {{ booking.id }}</div>
+  <div><strong>Status:</strong> {{ booking.bookCarStatus }}</div>
+  <div><strong>From:</strong> {{ booking.fromDate | date:'medium' }}</div>
+  <div><strong>To:</strong> {{ booking.toDate | date:'medium' }}</div>
+  <div><strong>Days:</strong> {{ booking.days }}</div>
+  <div><strong>Pickup Location:</strong> {{ booking.pickupLocation }}</div>
+
+  <div class="mt-2">
+  <strong>Car Details:</strong>
+  <ul>
+    <li><strong>Name:</strong> {{ booking.car?.name || 'N/A' }}</li>
+    <li><strong>Brand:</strong> {{ booking.car?.brand || 'N/A' }}</li>
+    <li><strong>Color:</strong> {{ booking.car?.color || 'N/A' }}</li>
+    <li><strong>Type:</strong> {{ booking.car?.type || 'N/A' }}</li>
+    <li><strong>Transmission:</strong> {{ booking.car?.transmission || 'N/A' }}</li>
+    <li><strong>Year:</strong> {{ booking.car?.year || 'N/A' }}</li>
+    <li><strong>Price (per day):</strong> ₹{{ booking.car?.price || 0 }}</li>
+    <li>
+      <strong>Total Price ({{ booking.days }} days):</strong>
+      ₹{{ (booking.car?.price || 0) * (booking.days || 0) }}
+    </li>
+  </ul>
+</div>
+
+
+
+  <div *ngIf="booking.bookCarStatus == 'PENDING'" class="mt-4 flex gap-2">
+    <button nz-button nzType="primary" nzSize="small"
+      (click)="changeBookingStatus(booking.id, 'Approve')">
+      Approve
+    </button>
+    <button nz-button nzType="default" nzDanger nzSize="small"
+      (click)="changeBookingStatus(booking.id, 'Reject')">
+      Reject
+    </button>
+  </div>
+</div> -->
+<div class="bookings-container">
+  <div class="booking-grid">
+    <div *ngFor="let booking of bookings" class="booking-card">
+      
+      <!-- Header -->
+      <div class="booking-header">
+        <div>
+          <p><strong>Booking ID:</strong> {{ booking.id }}</p>
+          <p class="booking-status" 
+            [ngClass]="{
+              'pending': booking.bookCarStatus === 'PENDING',
+              'approved': booking.bookCarStatus === 'APPROVED',
+              'rejected': booking.bookCarStatus === 'REJECTED',
+              'cancelled': booking.bookCarStatus === 'CANCELLED'
+            }">
+            Status: {{ booking.bookCarStatus }}
+          </p>
+        </div>
+
+        <div *ngIf="booking.bookCarStatus === 'PENDING'" class="flex gap-2">
+          <button nz-button nzType="primary" nzSize="small"
+            (click)="changeBookingStatus(booking.id, 'Approve')">Approve</button>
+          <button nz-button nzType="default" nzDanger nzSize="small"
+            (click)="changeBookingStatus(booking.id, 'Reject')">Reject</button>
+        </div>
+      </div>
+
+      <!-- Booking Info -->
+      <div class="booking-details">
+        <div><strong>From:</strong> {{ booking.fromDate | date:'medium' }}</div>
+        <div><strong>To:</strong> {{ booking.toDate | date:'medium' }}</div>
+        <div><strong>Days:</strong> {{ booking.days }}</div>
+        <div><strong>Pickup:</strong> {{ booking.pickupLocation }}</div>
+      </div>
+
+      <!-- Car Info -->
+      <div class="car-details">
+        <p class="car-details-title">Car Details</p>
+        <div><strong>Name:</strong> {{ booking.car?.name || 'N/A' }}</div>
+        <div><strong>Brand:</strong> {{ booking.car?.brand || 'N/A' }}</div>
+        <div><strong>Color:</strong> {{ booking.car?.color || 'N/A' }}</div>
+        <div><strong>Type:</strong> {{ booking.car?.type || 'N/A' }}</div>
+        <div><strong>Transmission:</strong> {{ booking.car?.transmission || 'N/A' }}</div>
+        <div><strong>Year:</strong> {{ booking.car?.year || 'N/A' }}</div>
+        <div><strong>Price/day:</strong> ₹{{ booking.car?.price || 0 }}</div>
+        <div><strong>Total:</strong> ₹{{ (booking.car?.price || 0) * (booking.days || 0) }}</div>
+      </div>
+    </div>
+  </div>
+</div>

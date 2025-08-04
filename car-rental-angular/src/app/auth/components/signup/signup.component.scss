@@ -1,0 +1,104 @@
+// :host {
+//   display: block;
+//   min-height: 100vh;
+//   background: linear-gradient(to right, #319795, #38b2ac);
+//   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+//   padding: 2rem;
+// }
+
+// .form-container {
+//   max-width: 450px;
+//   margin: auto;
+//   background: #ffffff;
+//   border-radius: 1.5rem;
+//   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+//   padding: 2.5rem 2rem;
+// }
+
+// .form-title {
+//   font-size: 1.8rem;
+//   font-weight: 700;
+//   color: #2c7a7b;
+//   text-align: center;
+//   margin-bottom: 1.5rem;
+// }
+
+// .form-group {
+//   position: relative;
+//   margin-bottom: 1.5rem;
+// }
+
+// .form-group input {
+//   width: 100%;
+//   padding: 0.75rem 0 0.25rem 0;
+//   font-size: 1rem;
+//   border: none;
+//   border-bottom: 2px solid #ccc;
+//   background: transparent;
+//   color: #333;
+//   transition: border-color 0.3s;
+// }
+
+// .form-group input:focus {
+//   outline: none;
+//   border-color: #38b2ac;
+// }
+
+// .form-group input::placeholder {
+//   color: transparent;
+// }
+
+// .form-group label {
+//   position: absolute;
+//   top: 0.75rem;
+//   left: 0;
+//   font-size: 0.9rem;
+//   color: #666;
+//   pointer-events: none;
+//   transition: all 0.2s ease;
+// }
+
+// .form-group input:focus + label,
+// .form-group input:not(:placeholder-shown) + label {
+//   top: -0.75rem;
+//   font-size: 0.75rem;
+//   color: #319795;
+// }
+
+// button[type='submit'] {
+//   width: 100%;
+//   padding: 0.75rem;
+//   background: #319795;
+//   color: white;
+//   font-size: 1rem;
+//   font-weight: bold;
+//   border: none;
+//   border-radius: 0.5rem;
+//   cursor: pointer;
+//   transition: background 0.3s;
+// }
+
+// button[type='submit']:hover:not(:disabled) {
+//   background: #2c7a7b;
+// }
+
+// button[type='submit']:disabled {
+//   background: #94d3ce;
+//   cursor: not-allowed;
+// }
+
+// .login-text {
+//   text-align: center;
+//   margin-top: 1rem;
+//   color: #888;
+// }
+
+// .login-text a {
+//   color: #13406a;
+//   font-weight: 600;
+//   text-decoration: none;
+// }
+
+// .login-text a:hover {
+//   text-decoration: underline;
+// }

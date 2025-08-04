@@ -1,0 +1,37 @@
+<nz-spin [nzSpinning]="isSpinning">
+  <div *ngIf="bookings.length === 0" class="no-bookings">No bookings found.</div>
+
+  <div class="booking-grid">
+    <div *ngFor="let booking of bookings" class="booking-card">
+      <p><strong>Booking ID:</strong> {{ booking.id }}</p>
+      <p><strong>From:</strong> {{ booking.fromDate | date }}</p>
+      <p><strong>To:</strong> {{ booking.toDate | date }}</p>
+      <p><strong>Days:</strong> {{ booking.days }}</p>
+      <p><strong>Price:</strong> ₹{{ booking.price }}</p>
+      <p><strong>Pickup Location:</strong> {{ booking.pickupLocation }}</p>
+
+      <p><strong>Status:</strong>
+        <span
+          class="status-label"
+          [ngClass]="{
+            'approved': booking.bookCarStatus === 'APPROVED',
+            'pending': booking.bookCarStatus === 'PENDING',
+            'cancelled': booking.bookCarStatus === 'CANCELLED',
+            'rejected': booking.bookCarStatus === 'REJECTED'
+          }"
+        >
+          {{ booking.bookCarStatus }}
+        </span>
+      </p>
+
+      <button
+        *ngIf="booking.bookCarStatus === 'PENDING'"
+        nz-button
+        nzType="default"
+        (click)="cancelBooking(booking)"
+      >
+        Cancel Booking
+      </button>
+    </div>
+  </div>
+</nz-spin>

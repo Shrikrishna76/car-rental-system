@@ -1,0 +1,44 @@
+<div class="login-page">
+  <div class="login-overlay">
+    <div class="login-form-wrapper">
+      <h1 class="login-title">Create Your Account</h1>
+
+      <form [formGroup]="signupForm">
+        <!-- Full Name -->
+        <div class="form-group">
+          <input id="name" type="text" placeholder=" " formControlName="name" autocomplete="off" />
+          <label for="name">Full Name</label>
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+          <input id="email" type="email" placeholder=" " formControlName="email" autocomplete="off" />
+          <label for="email">Email Address</label>
+        </div>
+
+        <!-- Password -->
+        <div class="form-group">
+          <input id="password" type="password" placeholder=" " formControlName="password" autocomplete="off" />
+          <label for="password">Password</label>
+        </div>
+
+        <!-- Confirm Password -->
+        <div class="form-group">
+          <input id="confirm-password" type="password" placeholder=" " formControlName="checkPassword" autocomplete="off" />
+          <label for="confirm-password">Confirm Password</label>
+        </div>
+
+        <!-- Register Button -->
+        <button class="login-button" (click)="register()" [disabled]="signupForm.invalid">
+          Register
+        </button>
+
+        <!-- Login Link -->
+        <p class="register-text">
+          Already have an account?
+          <a routerLink="/login">Login</a>
+        </p>
+      </form>
+    </div>
+  </div>
+</div>
